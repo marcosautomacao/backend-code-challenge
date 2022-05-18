@@ -6,6 +6,21 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+// export const ConnectionSource = new DataSource({
+//     migrationsTableName: 'migrations',
+//     type: 'mysql',
+//     host: "localhost",
+//     port: 3307,
+//     username: "root",
+//     password: "123456",
+//     database: "aplicacao_db",
+//     logging: false,
+//     synchronize: false,
+//     name: 'default',
+//     entities: [Produto, Cliente, Ordem],
+//     migrations: ['src/database/migrations/', 'src/database/migrations/*.ts'], 
+//     connectTimeout: 28800
+// });
 export const ConnectionSource = new DataSource({
     migrationsTableName: 'migrations',
     type: 'mysql',
@@ -19,12 +34,16 @@ export const ConnectionSource = new DataSource({
     name: 'default',
     entities: [Produto, Cliente, Ordem],
     migrations: ['src/database/migrations/', 'src/database/migrations/*.ts'], 
+    connectTimeout: 28800
 });
 
-ConnectionSource.initialize()
+if (!ConnectionSource.isInitialized) {
+    (
+    ConnectionSource.initialize()
     .then(() => {
         console.log("Data Source has been initialized!")
     })
     .catch((err) => {
         console.error("Error during Data Source initialization", err)
     })
+)}

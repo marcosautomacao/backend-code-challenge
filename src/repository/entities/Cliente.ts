@@ -8,4 +8,10 @@ export class Cliente {
 
     @Column()
     nome: string;
+
+    @Column()
+    email: string;
+
+    @Column()
+    telefone: string;
 }
