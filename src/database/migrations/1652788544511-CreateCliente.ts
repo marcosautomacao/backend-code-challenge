@@ -18,13 +18,21 @@ export class CreateCliente1652788544511 implements MigrationInterface {
                         name: "nome",
                         type: "varchar",
                         isUnique: true
+                    },
+                    {
+                        name: "email",
+                        type: "varchar"
+                    },
+                    {
+                        name: "telefone",
+                        type: "int"
                     }
                 ]
             })
         )
         await queryRunner.query("ALTER TABLE cliente CHANGE id id INT AUTO_INCREMENT");
-        await queryRunner.query("insert into cliente values (0,\"Joao Souza\")");
-        await queryRunner.query("insert into cliente values (0,\"Maria Alencar\")");
+        await queryRunner.query("insert into cliente values (0,\"Joao Souza\", \"jose@bol.com\", 1112312312)");
+        await queryRunner.query("insert into cliente values (0,\"Maria Alencar\", \"maria@bol.com\", 1143555533)");
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {

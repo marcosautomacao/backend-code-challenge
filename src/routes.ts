@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { ClienteController } from "./src/controllers/ClienteController";
-import { OrdemController } from "./src/controllers/OrdemController";
-import { ProdutoController } from "./src/controllers/ProdutoController";
+import { ClienteController } from "./controllers/ClienteController";
+import { OrdemController } from "./controllers/OrdemController";
+import { ProdutoController } from "./controllers/ProdutoController";
 
 const routes = Router();
 const produtoController = new ProdutoController();

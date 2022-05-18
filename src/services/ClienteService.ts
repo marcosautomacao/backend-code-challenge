@@ -34,7 +34,8 @@ export class ClienteService {
     
     async getClienteMaisCompramPorData(data: string): Promise<any> {
         console.log(data)
-        return this.clienteRepo.query(`select c.id, c.nome, COUNT(*) as vendas from cliente c join ordem o on c.id = o.id_cliente
-             where DATE(o.data) = '${data}' group by c.id, c.nome;`);
+        return this.clienteRepo.query(`select c.id, c.nome, c.email, c.telefone, COUNT(*) as vendas 
+            from cliente c join ordem o on c.id = o.id_cliente
+                where DATE(o.data) = '${data}' group by c.id, c.nome;`);
     }
 }
