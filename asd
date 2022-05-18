@@ -1,0 +1,8 @@
+TYPEORM_CONNECTION = mysql
+TYPEORM_HOST = localhost
+TYPEORM_USERNAME = root
+TYPEORM_PASSWORD = 123456
+TYPEORM_DATABASE = aplicacao_db
+TYPEORM_PORT = 3307
+TYPEORM_MIGRATIONS = src/database/migrations/*.ts
+TYPEORM_MIGRATIONS_DIR = src/database/migrations

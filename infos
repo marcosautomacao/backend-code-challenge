@@ -1,0 +1,7 @@
+yarn typeorm migration:run --dataSource .\src\ormconfig.ts
+npm run typeorm entity:create -n src/repository/entities/Produto 
+npm run typeorm entity:create -n src/repository/entities/Ordem
+npm run typeorm entity:create -n src/repository/entities/Cliente
+npm run typeorm migration:create -n src/database/migrations/CreateProduto
+npm run typeorm migration:create -n src/database/migrations/CreateOrdem
+npm run typeorm migration:create -n src/database/migrations/CreateCliente

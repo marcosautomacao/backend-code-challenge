@@ -1,0 +1,25 @@
+{
+  "name": "backend-code-challenge",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/marcosautomacao/backend-code-challenge.git",
+  "author": "Marcos de Menezes Souto Moura <marcosmoura00@hotmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node-dev --transpile-only src/server.ts",
+    "devv": "ts-node-dev src/server.ts",
+    "typeorm": "typeorm-ts-node-commonjs"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "ts-node": "^10.7.0",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "express": "^4.18.1",
+    "mysql": "^2.18.1",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.3.6"
+  }
+}
