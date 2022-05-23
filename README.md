@@ -1,3 +1,3 @@
-Para inicializar o produto, executar o docker-compose.
+Para inicializar o projeto, executar o docker-compose.
 
 Rotas no arquivo routes.ts
