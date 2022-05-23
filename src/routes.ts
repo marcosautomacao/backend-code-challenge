@@ -7,10 +7,10 @@ const routes = Router();
 const produtoController = new ProdutoController();
 
 routes.get("/produto", produtoController.getProdutos.bind(produtoController));
+routes.get("/produto/maisvendidos", produtoController.getProdutoMaisVendidos.bind(produtoController));
 routes.get("/produto/:id", produtoController.getProduto.bind(produtoController));
 routes.post("/produto", produtoController.postProdutos.bind(produtoController));
 routes.delete("/produto/:id", produtoController.deleteProdutos.bind(produtoController));
-routes.get("/produtosmaisvendidos", produtoController.getProdutoMaisVendidos.bind(produtoController));
 
 const clienteController = new ClienteController();
 
