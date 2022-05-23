@@ -1,13 +1,14 @@
 import { DeleteResult, Repository, UpdateResult } from "typeorm";
 import { ConnectionSource } from "../orm.config";
 import { Produto } from "../repository/entities/Produto";
+import { ProdutoRepository } from "../repository/repositories/ProdutoRepository";
 
 export class ProdutoService {
 
-    produtoRepo: Repository<Produto>
+    produtoRepo: Repository<Produto> | any
 
     constructor() {
-        this.produtoRepo = ConnectionSource.getRepository(Produto);
+        this.produtoRepo = ProdutoRepository;
     }
 
     async getProdutos(): Promise<Produto[]> {
@@ -33,7 +34,6 @@ export class ProdutoService {
     }
     
     async getProdutoMaisVendidos(): Promise<any> {
-        return this.produtoRepo.query("select p.id, p.nome, COUNT(*) as vendas " 
-            + "from produto p join ordem c on p.id = c.id_produto group by p.id, p.nome;");
+        return this.produtoRepo.getProdutoMaisVendidos();
     }
 }

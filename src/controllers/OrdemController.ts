@@ -61,8 +61,6 @@ export class OrdemController {
     async getOrdensPorData(req: Request, res: Response) {
         try {
             var result = await this.servico.getOrdens();
-            console.log(req.params.data);
-            console.log(new Date(req.params.data).toDateString());
             return res.json(result.filter(i => 
                 i.data.toDateString() == new Date(req.params.data).toDateString() && 
                 i.cliente.id == parseInt(req.params.id)));

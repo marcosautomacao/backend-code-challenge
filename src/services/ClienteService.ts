@@ -1,13 +1,13 @@
 import { DeleteResult, Repository, UpdateResult } from "typeorm";
-import { ConnectionSource } from "../orm.config";
 import { Cliente } from "../repository/entities/Cliente";
+import { ClientRepository } from "../repository/repositories/ClientRepository";
 
 export class ClienteService {
 
-    clienteRepo: Repository<Cliente>
-
+    clienteRepo: Repository<Cliente> | any
+    
     constructor() {
-        this.clienteRepo = ConnectionSource.getRepository(Cliente);
+        this.clienteRepo = ClientRepository;
     }
 
     async getClientes(): Promise<Cliente[]> {
@@ -33,9 +33,7 @@ export class ClienteService {
     }
     
     async getClienteMaisCompramPorData(data: string): Promise<any> {
-        console.log(data)
-        return this.clienteRepo.query(`select c.id, c.nome, c.email, c.telefone, COUNT(*) as vendas 
-            from cliente c join ordem o on c.id = o.id_cliente
-                where DATE(o.data) = '${data}' group by c.id, c.nome;`);
+        return this.clienteRepo.getClienteMaisCompramPorData(data);
     }
 }
+    
